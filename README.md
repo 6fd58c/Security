@@ -8,3 +8,7 @@
 # Tools
 ## 1. File Sharing
 * [Firefox Send](https://send.firefox.com/)
+
+## 2. IP Lookup
+* [IPInfo.io](https://ipinfo.io/)
+* [IPIntel.io](https://ipintel.io/)
