@@ -6,9 +6,18 @@
 * [HackThis](https://www.hackthis.co.uk/)
 
 # Tools
-## 1. File Sharing
+
+### File Sharing
 * [Firefox Send](https://send.firefox.com/)
 
-## 2. IP Lookup
+### IP Lookup
 * [IPInfo.io](https://ipinfo.io/)
 * [IPIntel.io](https://ipintel.io/)
+
+### Scanning
+* [Nmap](https://nmap.org/)
+
+### Search Engine
+* [Censys](https://censys.io/)
+* [COMODO Certificate Search](https://crt.sh/)
+* [Shodan](https://www.shodan.io/)
