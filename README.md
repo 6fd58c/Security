@@ -7,7 +7,7 @@
 
 ## Tools
 
-#### DNS Recon
+### DNS Recon
 * [Altdns](https://github.com/infosec-au/altdns)
 * [CertStream](https://certstream.calidog.io/)
 * [DNSdumpster](https://dnsdumpster.com/)
@@ -19,23 +19,23 @@
 * [nsec3walker](https://dnscurve.org/nsec3walker.html)
 * [Sublist3r](https://github.com/aboul3la/Sublist3r)
 
-#### File Sharing
+### File Sharing
 * [Firefox Send](https://send.firefox.com/)
 
-#### IP Lookup
+### IP Lookup
 * [IPInfo.io](https://ipinfo.io/)
 * [IPIntel.io](https://ipintel.io/)
 
-#### Network
+### Network
 * [BGPView](https://bgpview.io/)
 * [Hurricane Electric BGP Toolkit](https://bgp.he.net/)
 * [Team Cymru IP to ASN Lookup](https://asn.cymru.com/cgi-bin/whois.cgi)
 
 
-#### Scanning
+### Scanning
 * [Nmap](https://nmap.org/)
 
-#### Search Engine
+### Search Engine
 * [Censys](https://censys.io/)
 * [COMODO Certificate Search](https://crt.sh/)
 * [Shodan](https://www.shodan.io/)
