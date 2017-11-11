@@ -1,7 +1,7 @@
 # Challenges
 * [OverTheWire](https://overthewire.org/wargames/)
 * [Smash the Stack](https://smashthestack.org/wargames.html)
-* [Bright Shadows](bright-shadows.net)
+* [Bright Shadows](https://bright-shadows.net)
 * [Hellbound Hackers](https://www.hellboundhackers.org/)
 * [HackThis](https://www.hackthis.co.uk/)
 
