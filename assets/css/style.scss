@@ -1,8 +1,4 @@
 ---
 ---
 
-@import "{{jekyll-theme-midnight.theme}}";
-
-header {
-  display: none;
-}
+@import "{{ site.theme }}";
