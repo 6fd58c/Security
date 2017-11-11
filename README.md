@@ -9,15 +9,20 @@
 
 ### DNS Recon
 * [Altdns](https://github.com/infosec-au/altdns)
+* [AQUATONE](https://github.com/michenriksen/aquatone)
 * [CertStream](https://certstream.calidog.io/)
 * [DNSdumpster](https://dnsdumpster.com/)
 * [DNSRecon](https://github.com/darkoperator/dnsrecon)
+* [Domain Analyzer](https://github.com/eldraco/domain_analyzer)
+* [enumall ](https://github.com/jhaddix/domain)
 * [Fierce](https://github.com/davidpepper/fierce-domain-scanner)
 * [ldns](https://www.nlnetlabs.nl/projects/ldns/)
 * [MassDNS](https://github.com/blechschmidt/massdns)
 * [nsec3map](https://github.com/anonion0/nsec3map)
 * [nsec3walker](https://dnscurve.org/nsec3walker.html)
 * [Sublist3r](https://github.com/aboul3la/Sublist3r)
+* [SubBrute](https://github.com/TheRook/subbrute)
+* [XRay](https://github.com/evilsocket/xray)
 
 ### File Sharing
 * [Firefox Send](https://send.firefox.com/)
@@ -31,6 +36,8 @@
 * [Hurricane Electric BGP Toolkit](https://bgp.he.net/)
 * [Team Cymru IP to ASN Lookup](https://asn.cymru.com/cgi-bin/whois.cgi)
 
+### OSINT
+* [theHarvester](https://github.com/laramies/theHarvester)
 
 ### Scanning
 * [Nmap](https://nmap.org/)
