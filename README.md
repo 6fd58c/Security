@@ -24,6 +24,11 @@
 * [SubBrute](https://github.com/TheRook/subbrute)
 * [XRay](https://github.com/evilsocket/xray)
 
+Name            | Link
+----------------|-------------------------------------
+[Altdns]        | (https://github.com/infosec-au/altdns)
+
+
 ### File Sharing
 * [Firefox Send](https://send.firefox.com/)
 
