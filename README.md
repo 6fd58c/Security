@@ -11,21 +11,21 @@
 
 | Name            | Link                                                   |
 |-----------------|--------------------------------------------------------|
-| Altdns          | [https://github.com/infosec-au/altdns](https://github.com/infosec-au/altdns)               |
-| AQUATONE        | [https://github.com/michenriksen/aquatone]             |
+| Altdns          | <https://github.com/infosec-au/altdns>                 |
+| AQUATONE        | <https://github.com/michenriksen/aquatone>             |
 | CertStream      | <https://certstream.calidog.io/>                       |
-| DNSdumpster     | <https://dnsdumpster.com/                               |
-| DNSRecon        | https://github.com/darkoperator/dnsrecon               |
-| Domain Analyzer | https://github.com/eldraco/domain_analyzer             |
-| enumall         | https://github.com/jhaddix/domain                      |
-| Fierce          | https://github.com/davidpepper/fierce-domain-scanner   |
-| ldns            | https://www.nlnetlabs.nl/projects/ldns/                |
-| MassDNS         | https://github.com/blechschmidt/massdns                |
-| nsec3map        | https://github.com/anonion0/nsec3map                   |
-| nsec3walker     | https://dnscurve.org/nsec3walker.html                  |
-| Sublist3r       | https://github.com/aboul3la/Sublist3r                  |
-| SubBrute        | https://github.com/TheRook/subbrute                    |
-| XRay            | https://github.com/evilsocket/xray                     |
+| DNSdumpster     | <https://dnsdumpster.com/>                             |
+| DNSRecon        | <https://github.com/darkoperator/dnsrecon>             |
+| Domain Analyzer | <https://github.com/eldraco/domain_analyzer>           |
+| enumall         | <https://github.com/jhaddix/domain>                    |
+| Fierce          | <https://github.com/davidpepper/fierce-domain-scanner> |
+| ldns            | <https://www.nlnetlabs.nl/projects/ldns/>              |
+| MassDNS         | <https://github.com/blechschmidt/massdns>              |
+| nsec3map        | <https://github.com/anonion0/nsec3map>                 |
+| nsec3walker     | <https://dnscurve.org/nsec3walker.html>                |
+| Sublist3r       | <https://github.com/aboul3la/Sublist3r>                |
+| SubBrute        | <https://github.com/TheRook/subbrute>                  |
+| XRay            | <https://github.com/evilsocket/xray>                   |
 
 
 ### File Sharing
