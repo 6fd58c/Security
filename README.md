@@ -12,7 +12,7 @@
 | Name            | Link                                                   |
 |-----------------|--------------------------------------------------------|
 | Altdns          | [https://github.com/infosec-au/altdns](https://github.com/infosec-au/altdns)               |
-| AQUATONE        | https://github.com/michenriksen/aquatone               |
+| AQUATONE        | [https://github.com/michenriksen/aquatone]               |
 | CertStream      | https://certstream.calidog.io/                         |
 | DNSdumpster     | https://dnsdumpster.com/                               |
 | DNSRecon        | https://github.com/darkoperator/dnsrecon               |
