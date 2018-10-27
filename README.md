@@ -11,7 +11,7 @@
 
 | Name            | Link                                                   |
 |-----------------|--------------------------------------------------------|
-| Altdns          | [a](https://github.com/infosec-au/altdns)               |
+| Altdns          | [https://github.com/infosec-au/altdns](https://github.com/infosec-au/altdns)               |
 | AQUATONE        | https://github.com/michenriksen/aquatone               |
 | CertStream      | https://certstream.calidog.io/                         |
 | DNSdumpster     | https://dnsdumpster.com/                               |
