@@ -14,7 +14,7 @@
 | Altdns          | [https://github.com/infosec-au/altdns](https://github.com/infosec-au/altdns)               |
 | AQUATONE        | [https://github.com/michenriksen/aquatone]             |
 | CertStream      | <https://certstream.calidog.io/>                       |
-| DNSdumpster     | https://dnsdumpster.com/                               |
+| DNSdumpster     | <https://dnsdumpster.com/                               |
 | DNSRecon        | https://github.com/darkoperator/dnsrecon               |
 | Domain Analyzer | https://github.com/eldraco/domain_analyzer             |
 | enumall         | https://github.com/jhaddix/domain                      |
