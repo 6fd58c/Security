@@ -7,6 +7,68 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
 
 {% seo %}
+    <style>
+      /* Responsive base */
+      body {
+        font-size: 16px;
+      }
+
+      .container {
+        padding: 0 16px;
+        box-sizing: border-box;
+        max-width: 100%;
+      }
+
+      /* Responsive tables */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        word-break: break-word;
+      }
+
+      th, td {
+        padding: 8px 12px;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      /* Wrap tables in a scrollable container on small screens */
+      #main_content table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+      }
+
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 1.5em;
+        }
+
+        header h2 {
+          font-size: 1em;
+        }
+
+        #main_content table {
+          font-size: 0.9em;
+        }
+
+        th, td {
+          padding: 6px 8px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          font-size: 14px;
+        }
+
+        #main_content table {
+          font-size: 0.85em;
+        }
+      }
+    </style>
   </head>
 
   <body>
