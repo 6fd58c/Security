@@ -1,90 +1,29 @@
-# Challenges
+# Security
 
-| Name              | Link                                                   |
-|-------------------|--------------------------------------------------------|
-| OverTheWire       | <https://overthewire.org/wargames/>                    |
-| Smash the Stack   | <https://smashthestack.org/wargames.html>              |
-| Bright Shadows    | <http://bright-shadows.net>                            |
-| Hellbound Hackers | <https://www.hellboundhackers.org/>                    |
-| HackThis          | <https://www.hackthis.co.uk/>                          |
+A curated list of security tools and CTF wargame challenges.
 
-# Tools
+**Site:** <https://6fd58c.github.io/Security/>
 
-## DNS Recon
+## Adding a tool
 
-| Name              | Link                                                   |
-|-------------------|--------------------------------------------------------|
-| Altdns            | <https://github.com/infosec-au/altdns>                 |
-| AQUATONE          | <https://github.com/michenriksen/aquatone>             |
-| CertStream        | <https://certstream.calidog.io/>                       |
-| DNSdumpster       | <https://dnsdumpster.com/>                             |
-| DNSRecon          | <https://github.com/darkoperator/dnsrecon>             |
-| Domain Analyzer   | <https://github.com/eldraco/domain_analyzer>           |
-| enumall           | <https://github.com/jhaddix/domain>                    |
-| Fierce            | <https://github.com/davidpepper/fierce-domain-scanner> |
-| ldns              | <https://www.nlnetlabs.nl/projects/ldns/>              |
-| MassDNS           | <https://github.com/blechschmidt/massdns>              |
-| nsec3map          | <https://github.com/anonion0/nsec3map>                 |
-| nsec3walker       | <https://dnscurve.org/nsec3walker.html>                |
-| Sublist3r         | <https://github.com/aboul3la/Sublist3r>                |
-| SubBrute          | <https://github.com/TheRook/subbrute>                  |
-| XRay              | <https://github.com/evilsocket/xray>                   |
+Edit [`_data/tools.yml`](_data/tools.yml) and add an entry:
 
-## File Sharing
+```yaml
+- name: Shodan
+  url: https://www.shodan.io/
+  categories: [Search Engine, Server]
+```
 
-| Name              | Link                                                   |
-|-------------------|--------------------------------------------------------|
-| Firefox Send      | <https://send.firefox.com/>                            |
+`categories` is a list, so a tool can appear in more than one section without duplication.
 
-## IP Lookup
+## Adding a category
 
-| Name              | Link                                                   |
-|-------------------|--------------------------------------------------------|
-| IPInfo.io         | <https://ipinfo.io/>                                   |
-| IPIntel.io        | <https://ipintel.io/>                                  |
+Edit [`_data/categories.yml`](_data/categories.yml). The order in that file controls the order categories appear on the site. A category with no matching tools is skipped automatically.
 
-## Network
+## Adding a challenge
 
-| Name              | Link                                                   |
-|-------------------|--------------------------------------------------------|
-| BGPView           | <https://bgpview.io/>                                  |
-| HE BGP Toolkit    | <https://bgp.he.net/>                                  |
-| Cymru ASN Lookup  | <https://asn.cymru.com/cgi-bin/whois.cgi>              |
+Edit [`_data/challenges.yml`](_data/challenges.yml).
 
-## OSINT
+## Site
 
-| Name              | Link                                                   |
-|-------------------|--------------------------------------------------------|
-| theHarvester      | <https://github.com/laramies/theHarvester>             |
-
-## Scanning
-
-| Name              | Link                                                   |
-|-------------------|--------------------------------------------------------|
-| Nmap              | <https://nmap.org/>                                    |
-
-## Search Engine
-
-| Name              | Link                                                   |
-|-------------------|--------------------------------------------------------|
-| Censys            | <https://censys.io/>                                   |
-| Certificate Search| <https://crt.sh/>                                      |
-| Shodan            | <https://www.shodan.io/>                               |
-
-## Web Application Security
-
-### API Testing
-
-| Name              | Link                                                   |
-|-------------------|--------------------------------------------------------|
-| Insomnia          | <https://insomnia.rest/>                               |
-| Postman           | <https://www.getpostman.com>                           |
-
-### HTTP Proxy
-
-| Name              | Link                                                   |
-|-------------------|--------------------------------------------------------|
-| Burp Suite        | <https://portswigger.net/burp>                         |
-| Charles Proxy     | <https://www.charlesproxy.com>                         |
-| Fiddler           | <https://www.telerik.com/fiddler>                      |
-| OWASP ZAP         | <https://github.com/zaproxy/zaproxy/wiki/Downloads>    |
+The page is built by Jekyll on GitHub Pages. The layout lives in [`_layouts/default.html`](_layouts/default.html); the data-driven page is [`index.html`](index.html).
