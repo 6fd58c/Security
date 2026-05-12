@@ -1,19 +1,14 @@
 # Order in which tool categories appear on the site.
-# Add a new entry here to surface a new category; remove or reorder freely.
+# A category with no matching tools is skipped automatically.
 - name: DNS Recon
 - name: IP Lookup
 - name: Network
 - name: OSINT
 - name: Search Engine
-- name: Server
-- name: Dorks
-- name: Code Search
-- name: Certificate Search
 - name: Threat Intelligence
 - name: Attack Surface
+- name: Code Search
 - name: Vulnerabilities
-- name: Email Discovery
-- name: WiFi Networks
 - name: Scanning
 - name: API Testing
 - name: HTTP Proxy
