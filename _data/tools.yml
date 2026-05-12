@@ -1,6 +1,6 @@
-# Security tools. Each entry needs a `name`, `url`, and a `categories` list.
-# Categories must match an entry in _data/categories.yml to be rendered.
-# A tool can appear in multiple categories — just add more entries to the list.
+# Security tools. Each tool appears exactly once; pick the single
+# category that best fits it. Category strings must match an entry in
+# _data/categories.yml.
 
 # DNS Recon
 - name: Altdns
@@ -75,43 +75,34 @@
 - name: Intelligence X
   url: https://intelx.io/
   categories: [OSINT]
+- name: Hunter
+  url: https://hunter.io/
+  categories: [OSINT]
+- name: WiGLE
+  url: https://www.wigle.net/
+  categories: [OSINT]
 
-# Search engines (broad)
+# Search Engine (server / internet-asset / certificate / general search)
 - name: Shodan
   url: https://www.shodan.io/
-  categories: [Search Engine, Server]
+  categories: [Search Engine]
 - name: Censys
   url: https://censys.io/
-  categories: [Search Engine, Server]
+  categories: [Search Engine]
 - name: crt.sh
   url: https://crt.sh/
-  categories: [Search Engine, Certificate Search]
-
-# Server-focused search
-- name: Onyphe
-  url: https://www.onyphe.io/
-  categories: [Server]
-- name: IVRE
-  url: https://ivre.rocks/
-  categories: [Server]
-
-# Dorks
+  categories: [Search Engine]
 - name: Google
   url: https://www.google.com/
-  categories: [Dorks]
+  categories: [Search Engine]
+- name: Onyphe
+  url: https://www.onyphe.io/
+  categories: [Search Engine]
+- name: IVRE
+  url: https://ivre.rocks/
+  categories: [Search Engine]
 
-# Code search
-- name: grep.app
-  url: https://grep.app/
-  categories: [Code Search]
-- name: searchcode
-  url: https://searchcode.com/
-  categories: [Code Search]
-- name: PublicWWW
-  url: https://publicwww.com/
-  categories: [Code Search]
-
-# Threat intelligence
+# Threat Intelligence
 - name: BinaryEdge App
   url: https://app.binaryedge.io/
   categories: [Threat Intelligence]
@@ -137,7 +128,7 @@
   url: https://pulsedive.com/
   categories: [Threat Intelligence]
 
-# Attack surface
+# Attack Surface
 - name: Netlas
   url: https://app.netlas.io/
   categories: [Attack Surface]
@@ -148,27 +139,28 @@
   url: https://www.binaryedge.io/
   categories: [Attack Surface]
 
+# Code Search
+- name: grep.app
+  url: https://grep.app/
+  categories: [Code Search]
+- name: searchcode
+  url: https://searchcode.com/
+  categories: [Code Search]
+- name: PublicWWW
+  url: https://publicwww.com/
+  categories: [Code Search]
+
 # Vulnerabilities
 - name: Vulners
   url: https://vulners.com/
   categories: [Vulnerabilities]
-
-# Email discovery
-- name: Hunter
-  url: https://hunter.io/
-  categories: [Email Discovery]
-
-# WiFi networks
-- name: WiGLE
-  url: https://www.wigle.net/
-  categories: [WiFi Networks]
 
 # Scanning
 - name: Nmap
   url: https://nmap.org/
   categories: [Scanning]
 
-# API testing
+# API Testing
 - name: Insomnia
   url: https://insomnia.rest/
   categories: [API Testing]
@@ -176,7 +168,7 @@
   url: https://www.getpostman.com
   categories: [API Testing]
 
-# HTTP proxy
+# HTTP Proxy
 - name: Burp Suite
   url: https://portswigger.net/burp
   categories: [HTTP Proxy]
@@ -190,7 +182,7 @@
   url: https://github.com/zaproxy/zaproxy/wiki/Downloads
   categories: [HTTP Proxy]
 
-# File sharing
+# File Sharing
 - name: Firefox Send
   url: https://send.firefox.com/
   categories: [File Sharing]
