@@ -1,15 +1,13 @@
 # Order in which tool categories appear on the site.
 # A category with no matching tools is skipped automatically.
-- name: DNS Recon
-- name: IP Lookup
-- name: Network
-- name: OSINT
-- name: Search Engine
+- name: Subdomain & DNS
+- name: Network & ASN
+- name: Internet Host Search
+- name: Web & Code Search
+- name: Credentials & Leaks
+- name: People & OSINT
 - name: Threat Intelligence
-- name: Attack Surface
-- name: Code Search
-- name: Vulnerabilities
-- name: Scanning
-- name: API Testing
-- name: HTTP Proxy
+- name: Vulnerabilities & Exploits
+- name: Network Scanning
+- name: Web App Testing
 - name: File Sharing
