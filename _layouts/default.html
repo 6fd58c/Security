@@ -305,7 +305,14 @@
       /* Honor reduced motion */
       @media (prefers-reduced-motion: reduce) {
         a { transition: none; }
+        html { scroll-behavior: auto; }
+        .site-nav, .nav-backdrop { transition: none; }
       }
+
+      html { scroll-behavior: smooth; }
+
+      /* Section anchors leave a little breathing room when jumped to */
+      #main_content h1[id], #main_content h2[id] { scroll-margin-top: 16px; }
 
       /* Focus ring for keyboard users */
       a:focus-visible {
@@ -313,18 +320,209 @@
         outline-offset: 2px;
         border-radius: 2px;
       }
+
+      /* ------------------------------------------------------------------ */
+      /* Hamburger + slide-out nav                                          */
+      /* ------------------------------------------------------------------ */
+
+      header.site .container {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      header.site .header-text { min-width: 0; }
+
+      .nav-toggle {
+        appearance: none;
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text);
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 2px;
+        transition: background 120ms ease, border-color 120ms ease,
+                    color 120ms ease;
+      }
+      .nav-toggle:hover {
+        background: var(--surface);
+        color: var(--accent-hi);
+        border-color: var(--rule);
+      }
+      .nav-toggle:focus-visible {
+        outline: 2px solid var(--accent-hi);
+        outline-offset: 2px;
+      }
+      .nav-toggle svg { display: block; }
+
+      .nav-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 200ms ease;
+        z-index: 50;
+      }
+      @supports (background: oklch(0 0 0 / 0.5)) {
+        .nav-backdrop { background: oklch(0.10 0.01 260 / 0.55); }
+      }
+
+      .site-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 280px;
+        max-width: 85vw;
+        background: var(--surface);
+        border-right: 1px solid var(--border);
+        transform: translateX(-100%);
+        transition: transform 220ms ease;
+        z-index: 60;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        display: flex;
+        flex-direction: column;
+      }
+
+      body.nav-open .nav-backdrop {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      body.nav-open .site-nav { transform: translateX(0); }
+      body.nav-open { overflow: hidden; }
+
+      .site-nav-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border);
+      }
+      .site-nav-title {
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .nav-close {
+        appearance: none;
+        background: transparent;
+        border: 0;
+        color: var(--muted);
+        cursor: pointer;
+        padding: 6px;
+        border-radius: 6px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: color 120ms ease, background 120ms ease;
+      }
+      .nav-close:hover { color: var(--accent-hi); background: var(--bg); }
+      .nav-close:focus-visible {
+        outline: 2px solid var(--accent-hi);
+        outline-offset: 2px;
+      }
+
+      .site-nav-inner {
+        padding: 10px;
+      }
+
+      .nav-link {
+        display: block;
+        padding: 8px 12px;
+        margin: 1px 0;
+        color: var(--text);
+        border-radius: 6px;
+        border-bottom: 0;
+        font-size: 0.95rem;
+        transition: background 120ms ease, color 120ms ease;
+      }
+      .nav-link:hover, .nav-link:focus {
+        background: var(--bg);
+        color: var(--accent-hi);
+        border-bottom: 0;
+      }
+
+      .nav-link.nav-sub {
+        padding-left: 22px;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      .nav-link.nav-sub:hover, .nav-link.nav-sub:focus { color: var(--accent); }
+
+      .nav-group {
+        padding: 14px 12px 4px;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 600;
+      }
     </style>
   </head>
 
   <body>
     <header class="site">
       <div class="container">
-        <h1><a href="{{ '/' | relative_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
-        {% if site.description or site.github.project_tagline %}
-        <p>{{ site.description | default: site.github.project_tagline }}</p>
-        {% endif %}
+        <button type="button"
+                class="nav-toggle"
+                aria-controls="site-nav"
+                aria-expanded="false"
+                aria-label="Open navigation">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               aria-hidden="true">
+            <line x1="4" y1="6" x2="20" y2="6"/>
+            <line x1="4" y1="12" x2="20" y2="12"/>
+            <line x1="4" y1="18" x2="20" y2="18"/>
+          </svg>
+        </button>
+        <div class="header-text">
+          <h1><a href="{{ '/' | relative_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+          {% if site.description or site.github.project_tagline %}
+          <p>{{ site.description | default: site.github.project_tagline }}</p>
+          {% endif %}
+        </div>
       </div>
     </header>
+
+    <nav id="site-nav" class="site-nav" aria-label="Sections" aria-hidden="true">
+      <div class="site-nav-header">
+        <span class="site-nav-title">Sections</span>
+        <button type="button" class="nav-close" aria-label="Close navigation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               aria-hidden="true">
+            <line x1="6" y1="6" x2="18" y2="18"/>
+            <line x1="18" y1="6" x2="6" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="site-nav-inner">
+        {% if site.data.challenges and site.data.challenges.size > 0 %}
+        <a class="nav-link" href="#challenges">Challenges</a>
+        {% endif %}
+        {% if site.data.categories %}
+        <div class="nav-group">Tools</div>
+          {% for cat in site.data.categories %}
+            {% assign tools_in_cat = site.data.tools | where_exp: "t", "t.categories contains cat.name" %}
+            {% if tools_in_cat.size > 0 %}
+        <a class="nav-link nav-sub" href="#{{ cat.name | slugify }}">{{ cat.name }}</a>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+    </nav>
+    <div class="nav-backdrop" hidden></div>
 
     <main>
       <div class="container">
@@ -333,6 +531,46 @@
         </section>
       </div>
     </main>
+
+    <script>
+      (function () {
+        var body = document.body;
+        var toggle = document.querySelector('.nav-toggle');
+        var nav = document.getElementById('site-nav');
+        var backdrop = document.querySelector('.nav-backdrop');
+        var closeBtn = document.querySelector('.nav-close');
+        if (!toggle || !nav || !backdrop) return;
+
+        backdrop.hidden = false;
+
+        function setOpen(open) {
+          body.classList.toggle('nav-open', open);
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          nav.setAttribute('aria-hidden', open ? 'false' : 'true');
+          if (open) {
+            var first = nav.querySelector('a, button');
+            if (first) first.focus({ preventScroll: true });
+          } else {
+            toggle.focus({ preventScroll: true });
+          }
+        }
+
+        toggle.addEventListener('click', function () {
+          setOpen(!body.classList.contains('nav-open'));
+        });
+        if (closeBtn) closeBtn.addEventListener('click', function () { setOpen(false); });
+        backdrop.addEventListener('click', function () { setOpen(false); });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && body.classList.contains('nav-open')) {
+            setOpen(false);
+          }
+        });
+        nav.addEventListener('click', function (e) {
+          var link = e.target.closest('a');
+          if (link) setOpen(false);
+        });
+      })();
+    </script>
 
     {% if site.github.is_project_page %}
     <footer class="site">
