@@ -79,15 +79,21 @@
 # Search engines (broad)
 - name: Shodan
   url: https://www.shodan.io/
-  categories: [Search Engine, Server]
+  categories: [Search Engine]
 - name: Censys
   url: https://censys.io/
-  categories: [Search Engine, Server]
+  categories: [Search Engine]
 - name: crt.sh
   url: https://crt.sh/
-  categories: [Search Engine, Certificate Search]
+  categories: [Search Engine]
 
 # Server-focused search
+- name: Shodan
+  url: https://www.shodan.io/
+  categories: [Server]
+- name: Censys
+  url: https://censys.io/
+  categories: [Server]
 - name: Onyphe
   url: https://www.onyphe.io/
   categories: [Server]
@@ -110,6 +116,11 @@
 - name: PublicWWW
   url: https://publicwww.com/
   categories: [Code Search]
+
+# Certificate search
+- name: crt.sh
+  url: https://crt.sh/
+  categories: [Certificate Search]
 
 # Threat intelligence
 - name: BinaryEdge App
