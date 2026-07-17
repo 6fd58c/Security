@@ -205,6 +205,35 @@
   url: https://www.getpostman.com
   categories: [Web App Testing]
 
+# AI Security — LLM red-teaming, prompt-injection scanners, guardrails.
+- name: Garak
+  url: https://github.com/NVIDIA/garak
+  categories: [AI Security]
+- name: PyRIT
+  url: https://github.com/Azure/PyRIT
+  categories: [AI Security]
+- name: promptfoo
+  url: https://www.promptfoo.dev/
+  categories: [AI Security]
+- name: Rebuff
+  url: https://github.com/protectai/rebuff
+  categories: [AI Security]
+- name: Lakera Guard
+  url: https://www.lakera.ai/
+  categories: [AI Security]
+- name: NeMo Guardrails
+  url: https://github.com/NVIDIA/NeMo-Guardrails
+  categories: [AI Security]
+- name: LLM Guard
+  url: https://github.com/protectai/llm-guard
+  categories: [AI Security]
+- name: Vigil
+  url: https://github.com/deadbits/vigil-llm
+  categories: [AI Security]
+- name: OWASP LLM Top 10
+  url: https://owasp.org/www-project-top-10-for-large-language-model-applications/
+  categories: [AI Security]
+
 # File Sharing
 - name: Firefox Send
   url: https://send.firefox.com/
