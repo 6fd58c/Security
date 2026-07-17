@@ -244,62 +244,8 @@
         #main_content h2 { font-size: 1.05rem; }
       }
 
-      /* Mobile: collapse 2-column tables into stacked cards */
       @media (max-width: 560px) {
         body { font-size: 15px; }
-
-        #main_content table,
-        #main_content thead,
-        #main_content tbody,
-        #main_content tr,
-        #main_content th,
-        #main_content td {
-          display: block;
-          width: 100%;
-        }
-
-        #main_content table {
-          border: 0;
-          background: transparent;
-          border-radius: 0;
-          margin: 8px 0 20px;
-        }
-
-        #main_content thead { display: none; }
-
-        #main_content tbody tr {
-          background: var(--surface);
-          border: 1px solid var(--border);
-          border-radius: 8px;
-          padding: 10px 14px;
-          margin-bottom: 8px;
-        }
-
-        #main_content tbody tr:hover { background: var(--surface); }
-
-        #main_content tbody td,
-        #main_content tbody td:first-child,
-        #main_content tbody td:last-child {
-          border: 0;
-          padding: 2px 0;
-          white-space: normal;
-          width: auto;
-        }
-
-        #main_content tbody td:first-child {
-          font-size: 0.95rem;
-          color: var(--heading);
-          margin-bottom: 2px;
-        }
-
-        #main_content tbody td:last-child {
-          font-size: 0.88rem;
-        }
-
-        #main_content tbody td:last-child a {
-          color: var(--accent);
-          word-break: break-all;
-        }
       }
 
       /* Honor reduced motion */
@@ -311,8 +257,8 @@
 
       html { scroll-behavior: smooth; }
 
-      /* Section anchors leave a little breathing room when jumped to */
-      #main_content h1[id], #main_content h2[id] { scroll-margin-top: 16px; }
+      /* Section anchors clear the sticky toolbar when jumped to */
+      .tool-section { scroll-margin-top: 72px; }
 
       /* Focus ring for keyboard users */
       a:focus-visible {
@@ -325,13 +271,40 @@
       /* Hamburger + slide-out nav                                          */
       /* ------------------------------------------------------------------ */
 
-      header.site .container {
+      /* Sticky toolbar: hamburger + search */
+      .toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 10px 0;
+      }
+      .toolbar .container {
         display: flex;
-        align-items: flex-start;
-        gap: 14px;
+        align-items: center;
+        gap: 10px;
       }
 
-      header.site .header-text { min-width: 0; }
+      .search-input {
+        flex: 1;
+        min-width: 0;
+        appearance: none;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        color: var(--text);
+        font-family: inherit;
+        font-size: 0.95rem;
+        padding: 9px 12px;
+        transition: border-color 120ms ease;
+      }
+      .search-input::placeholder { color: var(--muted); }
+      .search-input:focus { outline: none; border-color: var(--accent); }
+      .search-input:focus-visible {
+        outline: 2px solid var(--accent-hi);
+        outline-offset: 1px;
+      }
 
       .nav-toggle {
         appearance: none;
@@ -346,7 +319,6 @@
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
-        margin-top: 2px;
         transition: background 120ms ease, border-color 120ms ease,
                     color 120ms ease;
       }
@@ -467,11 +439,117 @@
         color: var(--muted);
         font-weight: 600;
       }
+
+      .nav-count {
+        float: right;
+        font-size: 0.75rem;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      /* Scroll-spy active state + filtered-out sections */
+      .nav-link.active { color: var(--accent-hi); background: var(--bg); }
+      .nav-link.nav-sub.active {
+        color: var(--accent);
+        box-shadow: inset 2px 0 0 var(--accent);
+      }
+      .nav-link.nav-dim { opacity: 0.35; }
+
+      /* ------------------------------------------------------------------ */
+      /* Tool sections + card grid                                          */
+      /* ------------------------------------------------------------------ */
+
+      .section-heading {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        font-size: 1.15rem;
+        margin: 34px 0 4px;
+        color: var(--accent);
+      }
+      .tool-section:first-of-type .section-heading { margin-top: 8px; }
+
+      .section-count {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--muted);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 1px 8px;
+      }
+
+      .tool-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        gap: 10px;
+        margin: 12px 0 4px;
+      }
+
+      .tool-card {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 11px 13px;
+        color: var(--text);
+        transition: border-color 120ms ease, background 120ms ease,
+                    transform 120ms ease;
+      }
+      .tool-card:hover, .tool-card:focus {
+        border-color: var(--accent);
+        border-bottom-color: var(--accent);
+        transform: translateY(-1px);
+      }
+      .tool-card:focus-visible {
+        outline: 2px solid var(--accent-hi);
+        outline-offset: 2px;
+      }
+
+      .tool-name {
+        color: var(--heading);
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: color 120ms ease;
+      }
+      .tool-card:hover .tool-name, .tool-card:focus .tool-name {
+        color: var(--accent-hi);
+      }
+      .tool-host {
+        color: var(--muted);
+        font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+                     "Liberation Mono", monospace;
+        font-size: 0.78rem;
+        word-break: break-all;
+      }
+
+      .no-results {
+        color: var(--muted);
+        text-align: center;
+        padding: 32px 0;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .tool-card:hover, .tool-card:focus { transform: none; }
+      }
     </style>
   </head>
 
   <body>
     <header class="site">
+      <div class="container">
+        <div class="header-text">
+          <h1><a href="{{ '/' | relative_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+          {% if site.description or site.github.project_tagline %}
+          <p>{{ site.description | default: site.github.project_tagline }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </header>
+
+    <div class="toolbar">
       <div class="container">
         <button type="button"
                 class="nav-toggle"
@@ -486,14 +564,14 @@
             <line x1="4" y1="18" x2="20" y2="18"/>
           </svg>
         </button>
-        <div class="header-text">
-          <h1><a href="{{ '/' | relative_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
-          {% if site.description or site.github.project_tagline %}
-          <p>{{ site.description | default: site.github.project_tagline }}</p>
-          {% endif %}
-        </div>
+        <input type="search"
+               class="search-input"
+               placeholder="Filter tools…"
+               aria-label="Filter tools"
+               autocomplete="off"
+               spellcheck="false">
       </div>
-    </header>
+    </div>
 
     <nav id="site-nav" class="site-nav" aria-label="Sections" aria-hidden="true">
       <div class="site-nav-header">
@@ -508,15 +586,16 @@
         </button>
       </div>
       <div class="site-nav-inner">
-        {% if site.data.challenges and site.data.challenges.size > 0 %}
-        <a class="nav-link" href="#challenges">Challenges</a>
+        {% assign challenge_count = site.data.challenges | size %}
+        {% if challenge_count > 0 %}
+        <a class="nav-link" href="#challenges">Challenges <span class="nav-count">{{ challenge_count }}</span></a>
         {% endif %}
         {% if site.data.categories %}
         <div class="nav-group">Tools</div>
           {% for cat in site.data.categories %}
             {% assign tools_in_cat = site.data.tools | where_exp: "t", "t.categories contains cat.name" %}
             {% if tools_in_cat.size > 0 %}
-        <a class="nav-link nav-sub" href="#{{ cat.name | slugify }}">{{ cat.name }}</a>
+        <a class="nav-link nav-sub" href="#{{ cat.name | slugify }}">{{ cat.name }} <span class="nav-count">{{ tools_in_cat.size }}</span></a>
             {% endif %}
           {% endfor %}
         {% endif %}
@@ -569,6 +648,59 @@
           var link = e.target.closest('a');
           if (link) setOpen(false);
         });
+
+        // --- Live search filter -------------------------------------------
+        var search = document.querySelector('.search-input');
+        var sections = [].slice.call(document.querySelectorAll('.tool-section'));
+        var cards = [].slice.call(document.querySelectorAll('.tool-card'));
+        var noResults = document.querySelector('.no-results');
+        var navLinks = {};
+        [].slice.call(nav.querySelectorAll('.nav-link[href^="#"]')).forEach(function (l) {
+          navLinks[l.getAttribute('href').slice(1)] = l;
+        });
+
+        function applyFilter() {
+          var q = (search.value || '').trim().toLowerCase();
+          cards.forEach(function (card) {
+            var match = !q ||
+              card.getAttribute('data-name').indexOf(q) !== -1 ||
+              card.getAttribute('data-host').indexOf(q) !== -1;
+            card.hidden = !match;
+          });
+          var anyVisible = false;
+          sections.forEach(function (sec) {
+            var visible = sec.querySelectorAll('.tool-card:not([hidden])').length;
+            sec.hidden = visible === 0;
+            var count = sec.querySelector('.section-count');
+            if (count) count.textContent = visible;
+            var navLink = navLinks[sec.id];
+            if (navLink) navLink.classList.toggle('nav-dim', visible === 0);
+            if (visible) anyVisible = true;
+          });
+          if (noResults) noResults.hidden = anyVisible;
+        }
+
+        if (search) {
+          search.addEventListener('input', applyFilter);
+          search.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') { search.value = ''; applyFilter(); }
+          });
+        }
+
+        // --- Scroll-spy: highlight the section nearest the top ------------
+        if ('IntersectionObserver' in window && sections.length) {
+          var spy = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              var id = entry.target.id;
+              for (var key in navLinks) {
+                if (navLinks.hasOwnProperty(key)) navLinks[key].classList.remove('active');
+              }
+              if (navLinks[id]) navLinks[id].classList.add('active');
+            });
+          }, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
+          sections.forEach(function (sec) { spy.observe(sec); });
+        }
       })();
     </script>
 
