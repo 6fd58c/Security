@@ -35,6 +35,9 @@
 
       *, *::before, *::after { box-sizing: border-box; }
 
+      /* Ensure the hidden attribute wins over component display rules */
+      [hidden] { display: none !important; }
+
       html { -webkit-text-size-adjust: 100%; }
 
       body {
@@ -286,9 +289,14 @@
         gap: 10px;
       }
 
-      .search-input {
+      .search-wrap {
+        position: relative;
         flex: 1;
         min-width: 0;
+      }
+
+      .search-input {
+        width: 100%;
         appearance: none;
         background: var(--surface);
         border: 1px solid var(--border);
@@ -304,6 +312,63 @@
       .search-input:focus-visible {
         outline: 2px solid var(--accent-hi);
         outline-offset: 1px;
+      }
+
+      .suggestions {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        right: 0;
+        z-index: 45;
+        margin: 0;
+        padding: 6px;
+        list-style: none;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+        max-height: min(60vh, 420px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+
+      .suggestion {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 8px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .suggestion.active, .suggestion:hover { background: var(--bg); }
+
+      .suggestion .s-name {
+        color: var(--heading);
+        font-weight: 600;
+        font-size: 0.92rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .suggestion .s-host {
+        color: var(--muted);
+        font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+                     "Liberation Mono", monospace;
+        font-size: 0.76rem;
+        font-weight: 400;
+        margin-left: 8px;
+      }
+      .suggestion .s-cat {
+        color: var(--accent);
+        font-size: 0.72rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .suggestion-empty {
+        padding: 10px;
+        color: var(--muted);
+        font-size: 0.9rem;
       }
 
       .nav-toggle {
@@ -525,12 +590,6 @@
         word-break: break-all;
       }
 
-      .no-results {
-        color: var(--muted);
-        text-align: center;
-        padding: 32px 0;
-      }
-
       @media (prefers-reduced-motion: reduce) {
         .tool-card:hover, .tool-card:focus { transform: none; }
       }
@@ -564,12 +623,19 @@
             <line x1="4" y1="18" x2="20" y2="18"/>
           </svg>
         </button>
-        <input type="search"
-               class="search-input"
-               placeholder="Filter tools…"
-               aria-label="Filter tools"
-               autocomplete="off"
-               spellcheck="false">
+        <div class="search-wrap">
+          <input type="search"
+                 class="search-input"
+                 placeholder="Search tools…"
+                 aria-label="Search tools"
+                 role="combobox"
+                 aria-expanded="false"
+                 aria-controls="search-suggestions"
+                 aria-autocomplete="list"
+                 autocomplete="off"
+                 spellcheck="false">
+          <ul id="search-suggestions" class="suggestions" role="listbox" hidden></ul>
+        </div>
       </div>
     </div>
 
@@ -649,41 +715,128 @@
           if (link) setOpen(false);
         });
 
-        // --- Live search filter -------------------------------------------
+        // --- Search autocomplete ------------------------------------------
         var search = document.querySelector('.search-input');
+        var suggBox = document.getElementById('search-suggestions');
         var sections = [].slice.call(document.querySelectorAll('.tool-section'));
         var cards = [].slice.call(document.querySelectorAll('.tool-card'));
-        var noResults = document.querySelector('.no-results');
         var navLinks = {};
         [].slice.call(nav.querySelectorAll('.nav-link[href^="#"]')).forEach(function (l) {
           navLinks[l.getAttribute('href').slice(1)] = l;
         });
 
-        function applyFilter() {
+        // Build a lightweight index from the rendered cards.
+        var index = cards.map(function (card) {
+          return {
+            name: card.querySelector('.tool-name').textContent,
+            nameL: (card.getAttribute('data-name') || '').toLowerCase(),
+            host: card.getAttribute('data-host') || '',
+            cat: card.getAttribute('data-cat') || '',
+            href: card.getAttribute('href')
+          };
+        });
+
+        var MAX = 12;
+        var matches = [];
+        var active = -1;
+
+        function rank(item, q) {
+          if (item.nameL === q) return 0;
+          if (item.nameL.indexOf(q) === 0) return 1;
+          if (item.host.indexOf(q) === 0) return 2;
+          if (item.nameL.indexOf(q) !== -1) return 3;
+          if (item.host.indexOf(q) !== -1) return 4;
+          if (item.cat.toLowerCase().indexOf(q) !== -1) return 5;
+          return -1;
+        }
+
+        function closeSuggest() {
+          suggBox.hidden = true;
+          suggBox.innerHTML = '';
+          search.setAttribute('aria-expanded', 'false');
+          search.removeAttribute('aria-activedescendant');
+          active = -1;
+          matches = [];
+        }
+
+        function renderSuggest() {
           var q = (search.value || '').trim().toLowerCase();
-          cards.forEach(function (card) {
-            var match = !q ||
-              card.getAttribute('data-name').indexOf(q) !== -1 ||
-              card.getAttribute('data-host').indexOf(q) !== -1;
-            card.hidden = !match;
-          });
-          var anyVisible = false;
-          sections.forEach(function (sec) {
-            var visible = sec.querySelectorAll('.tool-card:not([hidden])').length;
-            sec.hidden = visible === 0;
-            var count = sec.querySelector('.section-count');
-            if (count) count.textContent = visible;
-            var navLink = navLinks[sec.id];
-            if (navLink) navLink.classList.toggle('nav-dim', visible === 0);
-            if (visible) anyVisible = true;
-          });
-          if (noResults) noResults.hidden = anyVisible;
+          if (!q) { closeSuggest(); return; }
+
+          matches = index
+            .map(function (item) { return { item: item, r: rank(item, q) }; })
+            .filter(function (m) { return m.r >= 0; })
+            .sort(function (a, b) {
+              return a.r - b.r || a.item.name.localeCompare(b.item.name);
+            })
+            .slice(0, MAX)
+            .map(function (m) { return m.item; });
+
+          suggBox.innerHTML = '';
+          if (!matches.length) {
+            var empty = document.createElement('li');
+            empty.className = 'suggestion-empty';
+            empty.textContent = 'No tools match “' + search.value.trim() + '”';
+            suggBox.appendChild(empty);
+          } else {
+            matches.forEach(function (item, i) {
+              var li = document.createElement('li');
+              li.className = 'suggestion';
+              li.id = 'suggestion-' + i;
+              li.setAttribute('role', 'option');
+              li.innerHTML =
+                '<span class="s-name">' + item.name +
+                '<span class="s-host">' + item.host + '</span></span>' +
+                '<span class="s-cat">' + item.cat + '</span>';
+              li.addEventListener('mousedown', function (e) {
+                e.preventDefault();
+                window.location.href = item.href;
+              });
+              li.addEventListener('mousemove', function () { setActive(i); });
+              suggBox.appendChild(li);
+            });
+          }
+          active = -1;
+          suggBox.hidden = false;
+          search.setAttribute('aria-expanded', 'true');
+        }
+
+        function setActive(i) {
+          var opts = suggBox.querySelectorAll('.suggestion');
+          if (!opts.length) return;
+          if (i < 0) i = opts.length - 1;
+          if (i >= opts.length) i = 0;
+          opts.forEach(function (o) { o.classList.remove('active'); });
+          active = i;
+          opts[i].classList.add('active');
+          opts[i].scrollIntoView({ block: 'nearest' });
+          search.setAttribute('aria-activedescendant', opts[i].id);
         }
 
         if (search) {
-          search.addEventListener('input', applyFilter);
+          search.addEventListener('input', renderSuggest);
           search.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') { search.value = ''; applyFilter(); }
+            if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              if (suggBox.hidden) { renderSuggest(); } else { setActive(active + 1); }
+            } else if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              setActive(active - 1);
+            } else if (e.key === 'Enter') {
+              if (!suggBox.hidden && matches.length) {
+                e.preventDefault();
+                window.location.href = matches[active < 0 ? 0 : active].href;
+              }
+            } else if (e.key === 'Escape') {
+              if (!suggBox.hidden) { closeSuggest(); }
+              else { search.value = ''; }
+            }
+          });
+          search.addEventListener('focus', function () {
+            if (search.value.trim()) renderSuggest();
+          });
+          document.addEventListener('click', function (e) {
+            if (!e.target.closest('.search-wrap')) closeSuggest();
           });
         }
 
