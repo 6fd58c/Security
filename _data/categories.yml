@@ -1,14 +1,14 @@
-# Order in which tool categories appear on the site.
+# Order in which tool categories appear on the site (alphabetical).
 # A category with no matching tools is skipped automatically.
-- name: Subdomain & DNS
-- name: Network & ASN
-- name: Internet Host Search
-- name: Web & Code Search
+- name: AI Security
 - name: Credentials & Leaks
+- name: File Sharing
+- name: Internet Host Search
+- name: Network & ASN
+- name: Network Scanning
 - name: People & OSINT
+- name: Subdomain & DNS
 - name: Threat Intelligence
 - name: Vulnerabilities & Exploits
-- name: Network Scanning
+- name: Web & Code Search
 - name: Web App Testing
-- name: AI Security
-- name: File Sharing

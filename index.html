@@ -10,7 +10,7 @@ title: Security
   <div class="tool-grid">
     {% for c in site.data.challenges %}
     {% assign host = c.url | remove_first: 'https://' | remove_first: 'http://' | split: '/' | first | remove_first: 'www.' %}
-    <a class="tool-card" href="{{ c.url }}" data-name="{{ c.name | downcase }}" data-host="{{ host | downcase }}">
+    <a class="tool-card" href="{{ c.url }}" data-name="{{ c.name | downcase }}" data-host="{{ host | downcase }}" data-cat="Challenges">
       <span class="tool-name">{{ c.name }}</span>
       <span class="tool-host">{{ host }}</span>
     </a>
@@ -27,7 +27,7 @@ title: Security
   <div class="tool-grid">
     {% for tool in tools_in_cat %}
     {% assign host = tool.url | remove_first: 'https://' | remove_first: 'http://' | split: '/' | first | remove_first: 'www.' %}
-    <a class="tool-card" href="{{ tool.url }}" data-name="{{ tool.name | downcase }}" data-host="{{ host | downcase }}">
+    <a class="tool-card" href="{{ tool.url }}" data-name="{{ tool.name | downcase }}" data-host="{{ host | downcase }}" data-cat="{{ cat.name }}">
       <span class="tool-name">{{ tool.name }}</span>
       <span class="tool-host">{{ host }}</span>
     </a>
@@ -36,5 +36,3 @@ title: Security
 </section>
   {% endif %}
 {% endfor %}
-
-<p class="no-results" hidden>No tools match your search.</p>
