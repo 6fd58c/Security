@@ -233,6 +233,18 @@
 - name: OWASP LLM Top 10
   url: https://owasp.org/www-project-top-10-for-large-language-model-applications/
   categories: [AI Security]
+- name: VulnHunter
+  url: https://github.com/capitalone/VulnHunter
+  categories: [AI Security]
+- name: DeepSec
+  url: https://github.com/vercel-labs/deepsec
+  categories: [AI Security]
+- name: Visa Vulnerability Agentic Harness
+  url: https://github.com/visa/visa-vulnerability-agentic-harness
+  categories: [AI Security]
+- name: Defending Code Reference Harness
+  url: https://github.com/anthropics/defending-code-reference-harness
+  categories: [AI Security]
 
 # File Sharing
 - name: Firefox Send
