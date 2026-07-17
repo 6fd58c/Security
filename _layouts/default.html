@@ -303,7 +303,8 @@
         border-radius: 8px;
         color: var(--text);
         font-family: inherit;
-        font-size: 0.95rem;
+        /* 16px avoids iOS Safari auto-zoom on focus (triggers below 16px) */
+        font-size: 16px;
         padding: 9px 12px;
         transition: border-color 120ms ease;
       }
