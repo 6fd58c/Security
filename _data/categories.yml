@@ -2,7 +2,6 @@
 # A category with no matching tools is skipped automatically.
 - name: AI Security
 - name: Credentials & Leaks
-- name: File Sharing
 - name: Internet Host Search
 - name: Network & ASN
 - name: Network Scanning

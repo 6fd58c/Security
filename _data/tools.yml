@@ -1,252 +1,311 @@
 # Security tools. Each tool appears exactly once.
 # Category strings must match an entry in _data/categories.yml.
-
-# Subdomain & DNS — subdomain discovery, DNS enumeration, certificate
-# transparency (used for subdomain discovery via cert logs).
-- name: Altdns
-  url: https://github.com/infosec-au/altdns
-  categories: [Subdomain & DNS]
-- name: AQUATONE
-  url: https://github.com/michenriksen/aquatone
-  categories: [Subdomain & DNS]
-- name: CertStream
-  url: https://certstream.calidog.io/
-  categories: [Subdomain & DNS]
-- name: crt.sh
-  url: https://crt.sh/
-  categories: [Subdomain & DNS]
-- name: DNSdumpster
-  url: https://dnsdumpster.com/
-  categories: [Subdomain & DNS]
-- name: DNSRecon
-  url: https://github.com/darkoperator/dnsrecon
-  categories: [Subdomain & DNS]
-- name: Domain Analyzer
-  url: https://github.com/eldraco/domain_analyzer
-  categories: [Subdomain & DNS]
-- name: enumall
-  url: https://github.com/jhaddix/domain
-  categories: [Subdomain & DNS]
-- name: Fierce
-  url: https://github.com/davidpepper/fierce-domain-scanner
-  categories: [Subdomain & DNS]
-- name: ldns
-  url: https://www.nlnetlabs.nl/projects/ldns/
-  categories: [Subdomain & DNS]
-- name: MassDNS
-  url: https://github.com/blechschmidt/massdns
-  categories: [Subdomain & DNS]
-- name: nsec3map
-  url: https://github.com/anonion0/nsec3map
-  categories: [Subdomain & DNS]
-- name: nsec3walker
-  url: https://dnscurve.org/nsec3walker.html
-  categories: [Subdomain & DNS]
-- name: SecurityTrails
-  url: https://securitytrails.com/
-  categories: [Subdomain & DNS]
-- name: SubBrute
-  url: https://github.com/TheRook/subbrute
-  categories: [Subdomain & DNS]
-- name: Sublist3r
-  url: https://github.com/aboul3la/Sublist3r
-  categories: [Subdomain & DNS]
-- name: XRay
-  url: https://github.com/evilsocket/xray
-  categories: [Subdomain & DNS]
-
-# Network & ASN — IP info, ASN/BGP lookups.
-- name: BGPView
-  url: https://bgpview.io/
-  categories: [Network & ASN]
-- name: HE BGP Toolkit
-  url: https://bgp.he.net/
-  categories: [Network & ASN]
-- name: Cymru ASN Lookup
-  url: https://asn.cymru.com/cgi-bin/whois.cgi
-  categories: [Network & ASN]
-- name: IPInfo.io
-  url: https://ipinfo.io/
-  categories: [Network & ASN]
-- name: IPIntel.io
-  url: https://ipintel.io/
-  categories: [Network & ASN]
-
-# Internet Host Search — search engines for internet-exposed hosts and services.
-- name: Shodan
-  url: https://www.shodan.io/
-  categories: [Internet Host Search]
-- name: Censys
-  url: https://censys.io/
-  categories: [Internet Host Search]
-- name: Onyphe
-  url: https://www.onyphe.io/
-  categories: [Internet Host Search]
-- name: IVRE
-  url: https://ivre.rocks/
-  categories: [Internet Host Search]
-- name: BinaryEdge
-  url: https://www.binaryedge.io/
-  categories: [Internet Host Search]
-- name: BinaryEdge App
-  url: https://app.binaryedge.io/
-  categories: [Internet Host Search]
-- name: FOFA
-  url: https://fofa.info/
-  categories: [Internet Host Search]
-- name: ZoomEye
-  url: https://www.zoomeye.org/
-  categories: [Internet Host Search]
-- name: Netlas
-  url: https://app.netlas.io/
-  categories: [Internet Host Search]
-- name: FullHunt
-  url: https://fullhunt.io/
-  categories: [Internet Host Search]
-- name: GrayHatWarfare
-  url: https://buckets.grayhatwarfare.com/
-  categories: [Internet Host Search]
-
-# Web & Code Search — generic web search, dorks, source-code search, archives.
-- name: Google
-  url: https://www.google.com/
-  categories: [Web & Code Search]
-- name: DorkSearch
-  url: https://dorksearch.com/
-  categories: [Web & Code Search]
-- name: grep.app
-  url: https://grep.app/
-  categories: [Web & Code Search]
-- name: searchcode
-  url: https://searchcode.com/
-  categories: [Web & Code Search]
-- name: PublicWWW
-  url: https://publicwww.com/
-  categories: [Web & Code Search]
-- name: Wayback Machine
-  url: https://web.archive.org/
-  categories: [Web & Code Search]
-
-# Credentials & Leaks — breach/leak/exposed-data search.
-- name: Dehashed
-  url: https://dehashed.com/
-  categories: [Credentials & Leaks]
-- name: Intelligence X
-  url: https://intelx.io/
-  categories: [Credentials & Leaks]
-- name: LeakIX
-  url: https://leakix.net/
-  categories: [Credentials & Leaks]
-
-# People & OSINT — email/people/location discovery.
-- name: Hunter
-  url: https://hunter.io/
-  categories: [People & OSINT]
-- name: theHarvester
-  url: https://github.com/laramies/theHarvester
-  categories: [People & OSINT]
-- name: WiGLE
-  url: https://www.wigle.net/
-  categories: [People & OSINT]
-
-# Threat Intelligence — feeds, reputation, sandbox, threat actor context.
-- name: AlienVault OTX
-  url: https://otx.alienvault.com/
-  categories: [Threat Intelligence]
-- name: GreyNoise Visualizer
-  url: https://viz.greynoise.io/
-  categories: [Threat Intelligence]
-- name: Pulsedive
-  url: https://pulsedive.com/
-  categories: [Threat Intelligence]
-- name: SOCRadar
-  url: https://socradar.io/
-  categories: [Threat Intelligence]
-- name: urlscan.io
-  url: https://urlscan.io/
-  categories: [Threat Intelligence]
-- name: PolySwarm
-  url: https://polyswarm.io/
-  categories: [Threat Intelligence]
-
-# Vulnerabilities & Exploits — vuln databases and exploit archives.
-- name: ExploitDB
-  url: https://www.exploit-db.com/
-  categories: [Vulnerabilities & Exploits]
-- name: Packet Storm
-  url: https://packetstormsecurity.com/
-  categories: [Vulnerabilities & Exploits]
-- name: Vulners
-  url: https://vulners.com/
-  categories: [Vulnerabilities & Exploits]
-
-# Network Scanning — active port/service scanners.
-- name: Nmap
-  url: https://nmap.org/
-  categories: [Network Scanning]
-
-# Web App Testing — HTTP proxies and API clients.
-- name: Burp Suite
-  url: https://portswigger.net/burp
-  categories: [Web App Testing]
-- name: OWASP ZAP
-  url: https://github.com/zaproxy/zaproxy/wiki/Downloads
-  categories: [Web App Testing]
-- name: Charles Proxy
-  url: https://www.charlesproxy.com
-  categories: [Web App Testing]
-- name: Fiddler
-  url: https://www.telerik.com/fiddler
-  categories: [Web App Testing]
-- name: Insomnia
-  url: https://insomnia.rest/
-  categories: [Web App Testing]
-- name: Postman
-  url: https://www.getpostman.com
-  categories: [Web App Testing]
+# `description` is a short one-liner shown on the card and searched by the
+# autocomplete — keep it under ~70 characters.
 
 # AI Security — LLM red-teaming, prompt-injection scanners, guardrails.
 - name: Garak
   url: https://github.com/NVIDIA/garak
+  description: LLM vulnerability scanner probing for jailbreaks and leakage
   categories: [AI Security]
 - name: PyRIT
   url: https://github.com/Azure/PyRIT
+  description: Microsoft's Python risk identification toolkit for generative AI
   categories: [AI Security]
 - name: promptfoo
   url: https://www.promptfoo.dev/
+  description: Test and red-team LLM prompts with adversarial suites
   categories: [AI Security]
 - name: Rebuff
   url: https://github.com/protectai/rebuff
+  description: Self-hardening prompt injection detector
   categories: [AI Security]
 - name: Lakera Guard
   url: https://www.lakera.ai/
+  description: Commercial guardrails against prompt injection and data leaks
   categories: [AI Security]
 - name: NeMo Guardrails
   url: https://github.com/NVIDIA/NeMo-Guardrails
+  description: Programmable guardrails for conversational LLM apps
   categories: [AI Security]
 - name: LLM Guard
   url: https://github.com/protectai/llm-guard
+  description: Open-source input/output sanitisation toolkit for LLMs
   categories: [AI Security]
 - name: Vigil
   url: https://github.com/deadbits/vigil-llm
+  description: Scanner for prompt injection and jailbreak payloads
   categories: [AI Security]
 - name: OWASP LLM Top 10
   url: https://owasp.org/www-project-top-10-for-large-language-model-applications/
+  description: Reference list of the top LLM application security risks
   categories: [AI Security]
 - name: VulnHunter
   url: https://github.com/capitalone/VulnHunter
+  description: ML-assisted vulnerability discovery in source code
   categories: [AI Security]
 - name: DeepSec
   url: https://github.com/vercel-labs/deepsec
+  description: Agentic security review of code changes
   categories: [AI Security]
 - name: Visa Vulnerability Agentic Harness
   url: https://github.com/visa/visa-vulnerability-agentic-harness
+  description: Harness for benchmarking agentic vulnerability discovery
   categories: [AI Security]
 - name: Defending Code Reference Harness
   url: https://github.com/anthropics/defending-code-reference-harness
+  description: Reference harness for evaluating code-defence agents
   categories: [AI Security]
 
-# File Sharing
-- name: Firefox Send
-  url: https://send.firefox.com/
-  categories: [File Sharing]
+# Credentials & Leaks — breach, leak and exposed-data search.
+- name: Dehashed
+  url: https://dehashed.com/
+  description: Search engine for leaked credentials and breach records
+  categories: [Credentials & Leaks]
+- name: Intelligence X
+  url: https://intelx.io/
+  description: Archive search across Tor, I2P, paste sites and data leaks
+  categories: [Credentials & Leaks]
+- name: LeakIX
+  url: https://leakix.net/
+  description: Index of publicly exposed services and leaked databases
+  categories: [Credentials & Leaks]
+
+# Internet Host Search — search engines for internet-exposed hosts and services.
+- name: Shodan
+  url: https://www.shodan.io/
+  description: The original search engine for internet-connected devices
+  categories: [Internet Host Search]
+- name: Censys
+  url: https://censys.com/
+  description: Continuously scanned inventory of hosts, certificates and services
+  categories: [Internet Host Search]
+- name: Onyphe
+  url: https://www.onyphe.io/
+  description: Cyber defence search engine for exposed assets
+  categories: [Internet Host Search]
+- name: IVRE
+  url: https://ivre.rocks/
+  description: Self-hosted network recon framework and scan database
+  categories: [Internet Host Search]
+- name: FOFA
+  url: https://fofa.info/
+  description: Chinese cyberspace mapping and asset search engine
+  categories: [Internet Host Search]
+- name: ZoomEye
+  url: https://www.zoomeye.org/
+  description: Cyberspace search engine for exposed hosts and components
+  categories: [Internet Host Search]
+- name: Netlas
+  url: https://app.netlas.io/
+  description: Attack-surface discovery across IPs, domains and certificates
+  categories: [Internet Host Search]
+- name: FullHunt
+  url: https://fullhunt.io/
+  description: Attack-surface database with continuous asset monitoring
+  categories: [Internet Host Search]
+- name: GrayHatWarfare
+  url: https://buckets.grayhatwarfare.com/
+  description: Search public S3 buckets and other open cloud storage
+  categories: [Internet Host Search]
+
+# Network & ASN — IP info, ASN and BGP lookups.
+- name: HE BGP Toolkit
+  url: https://bgp.he.net/
+  description: Hurricane Electric's BGP, ASN and peering lookup toolkit
+  categories: [Network & ASN]
+- name: Cymru ASN Lookup
+  url: https://asn.cymru.com/cgi-bin/whois.cgi
+  description: Team Cymru whois service mapping IPs to ASNs
+  categories: [Network & ASN]
+- name: IPInfo.io
+  url: https://ipinfo.io/
+  description: IP geolocation, ASN and hosting data via web or API
+  categories: [Network & ASN]
+
+# Network Scanning — active port and service scanners.
+- name: Nmap
+  url: https://nmap.org/
+  description: The standard port scanner and service fingerprinting tool
+  categories: [Network Scanning]
+
+# People & OSINT — email, people and location discovery.
+- name: theHarvester
+  url: https://github.com/laramies/theHarvester
+  description: Gathers emails, subdomains and names from public sources
+  categories: [People & OSINT]
+- name: Hunter
+  url: https://hunter.io/
+  description: Find and verify professional email addresses by domain
+  categories: [People & OSINT]
+- name: WiGLE
+  url: https://www.wigle.net/
+  description: Crowd-sourced database of wireless networks worldwide
+  categories: [People & OSINT]
+
+# Subdomain & DNS — subdomain discovery, DNS enumeration and certificate
+# transparency (widely used for subdomain discovery via cert logs).
+- name: Altdns
+  url: https://github.com/infosec-au/altdns
+  description: Generates and resolves subdomain permutations
+  categories: [Subdomain & DNS]
+- name: AQUATONE
+  url: https://github.com/michenriksen/aquatone
+  description: Visual inspection of websites across a host list
+  categories: [Subdomain & DNS]
+- name: CertStream
+  url: https://certstream.calidog.io/
+  description: Live feed of certificate transparency log updates
+  categories: [Subdomain & DNS]
+- name: crt.sh
+  url: https://crt.sh/
+  description: Searchable certificate transparency log database
+  categories: [Subdomain & DNS]
+- name: crt.name
+  url: https://crt.name/
+  description: Subdomain search over billions of certificate transparency records
+  categories: [Subdomain & DNS]
+- name: DNSdumpster
+  url: https://dnsdumpster.com/
+  description: Free DNS recon and subdomain mapping in the browser
+  categories: [Subdomain & DNS]
+- name: DNSRecon
+  url: https://github.com/darkoperator/dnsrecon
+  description: Scriptable DNS enumeration and zone transfer testing
+  categories: [Subdomain & DNS]
+- name: Domain Analyzer
+  url: https://github.com/eldraco/domain_analyzer
+  description: Automated domain reconnaissance and security analysis
+  categories: [Subdomain & DNS]
+- name: enumall
+  url: https://github.com/jhaddix/domain
+  description: Subdomain enumeration wrapper from jhaddix's recon toolkit
+  categories: [Subdomain & DNS]
+- name: Fierce
+  url: https://github.com/mschwager/fierce
+  description: DNS reconnaissance tool for locating non-contiguous IP space
+  categories: [Subdomain & DNS]
+- name: ldns
+  url: https://www.nlnetlabs.nl/projects/ldns/about/
+  description: C library and drill utility for DNS and DNSSEC queries
+  categories: [Subdomain & DNS]
+- name: MassDNS
+  url: https://github.com/blechschmidt/massdns
+  description: High-performance bulk DNS resolver for large wordlists
+  categories: [Subdomain & DNS]
+- name: nsec3map
+  url: https://github.com/anonion0/nsec3map
+  description: Enumerates DNSSEC zones by walking NSEC/NSEC3 records
+  categories: [Subdomain & DNS]
+- name: nsec3walker
+  url: https://dnscurve.org/nsec3walker.html
+  description: Classic tool for enumerating names from NSEC3 hashes
+  categories: [Subdomain & DNS]
+- name: SecurityTrails
+  url: https://securitytrails.com/
+  description: Historical DNS, WHOIS and subdomain intelligence
+  categories: [Subdomain & DNS]
+- name: SubBrute
+  url: https://github.com/TheRook/subbrute
+  description: Fast subdomain brute-forcer using open resolvers
+  categories: [Subdomain & DNS]
+- name: Sublist3r
+  url: https://github.com/aboul3la/Sublist3r
+  description: Subdomain enumeration using search engines and public APIs
+  categories: [Subdomain & DNS]
+- name: XRay
+  url: https://github.com/evilsocket/xray
+  description: Network and subdomain mapping with OSINT sources
+  categories: [Subdomain & DNS]
+
+# Threat Intelligence — feeds, reputation, sandboxes and actor context.
+- name: AlienVault OTX
+  url: https://otx.alienvault.com/
+  description: Open threat exchange with community-contributed indicators
+  categories: [Threat Intelligence]
+- name: GreyNoise Visualizer
+  url: https://viz.greynoise.io/
+  description: Separates targeted attacks from internet background noise
+  categories: [Threat Intelligence]
+- name: Pulsedive
+  url: https://pulsedive.com/
+  description: Free threat intelligence platform for indicator enrichment
+  categories: [Threat Intelligence]
+- name: SOCRadar
+  url: https://socradar.io/
+  description: Digital risk protection and external threat monitoring
+  categories: [Threat Intelligence]
+- name: urlscan.io
+  url: https://urlscan.io/
+  description: Sandboxed scanning of websites with full request capture
+  categories: [Threat Intelligence]
+- name: PolySwarm
+  url: https://polyswarm.io/
+  description: Multi-engine marketplace for scanning files and URLs
+  categories: [Threat Intelligence]
+
+# Vulnerabilities & Exploits — vulnerability databases and exploit archives.
+- name: ExploitDB
+  url: https://www.exploit-db.com/
+  description: Offensive Security's archive of public exploits and PoCs
+  categories: [Vulnerabilities & Exploits]
+- name: Packet Storm
+  url: https://packetstorm.news/
+  description: Long-running archive of exploits, advisories and tools
+  categories: [Vulnerabilities & Exploits]
+- name: Vulners
+  url: https://vulners.com/
+  description: Aggregated vulnerability database with a powerful search API
+  categories: [Vulnerabilities & Exploits]
+
+# Web & Code Search — generic web search, dorks, source-code search, archives.
+- name: Google
+  url: https://www.google.com/
+  description: Search operators and dorks remain a core recon technique
+  categories: [Web & Code Search]
+- name: DorkSearch
+  url: https://dorksearch.com/
+  description: Prebuilt Google dork templates for faster recon
+  categories: [Web & Code Search]
+- name: grep.app
+  url: https://grep.app/
+  description: Regex search across hundreds of thousands of Git repos
+  categories: [Web & Code Search]
+- name: searchcode
+  url: https://searchcode.com/
+  description: Source code search across public repositories
+  categories: [Web & Code Search]
+- name: PublicWWW
+  url: https://publicwww.com/
+  description: Search the HTML, JS and CSS source of millions of sites
+  categories: [Web & Code Search]
+- name: Wayback Machine
+  url: https://web.archive.org/
+  description: Historical snapshots of websites and removed content
+  categories: [Web & Code Search]
+
+# Web App Testing — HTTP proxies and API clients.
+- name: Burp Suite
+  url: https://portswigger.net/burp
+  description: The de facto intercepting proxy for web app testing
+  categories: [Web App Testing]
+- name: OWASP ZAP
+  url: https://www.zaproxy.org/download/
+  description: Free and open-source web application security scanner
+  categories: [Web App Testing]
+- name: Charles Proxy
+  url: https://www.charlesproxy.com
+  description: HTTP proxy and monitor with strong mobile support
+  categories: [Web App Testing]
+- name: Fiddler
+  url: https://www.telerik.com/fiddler
+  description: Web debugging proxy for inspecting and replaying traffic
+  categories: [Web App Testing]
+- name: Insomnia
+  url: https://insomnia.rest/
+  description: API client for crafting and replaying HTTP requests
+  categories: [Web App Testing]
+- name: Postman
+  url: https://www.postman.com/
+  description: API platform for building, testing and fuzzing requests
+  categories: [Web App Testing]

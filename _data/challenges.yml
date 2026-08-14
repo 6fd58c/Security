@@ -1,11 +1,10 @@
 # CTF / wargame challenges.
 - name: OverTheWire
   url: https://overthewire.org/wargames/
+  description: Progressive wargames teaching Linux, networking and binary basics over SSH
 - name: Smash the Stack
-  url: https://smashthestack.org/wargames.html
-- name: Bright Shadows
-  url: http://bright-shadows.net
+  url: https://smashthestack.org/
+  description: Long-running wargame network focused on binary exploitation
 - name: Hellbound Hackers
-  url: https://www.hellboundhackers.org/
-- name: HackThis
-  url: https://www.hackthis.co.uk/
+  url: https://hbh.sh/
+  description: Community challenges covering web, crypto and application security
