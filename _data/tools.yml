@@ -267,6 +267,14 @@
   url: https://dorksearch.com/
   description: Prebuilt Google dork templates for faster recon
   categories: [Web & Code Search]
+- name: Kagi
+  url: https://kagi.com/
+  description: Ad-free search with per-site ranking controls and rich operators
+  categories: [Web & Code Search]
+- name: Yandex
+  url: https://yandex.com/
+  description: Alternative index prized for its reverse image search
+  categories: [Web & Code Search]
 - name: grep.app
   url: https://grep.app/
   description: Regex search across hundreds of thousands of Git repos
