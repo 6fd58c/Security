@@ -122,6 +122,10 @@
   url: https://ipinfo.io/
   description: IP geolocation, ASN and hosting data via web or API
   categories: [Network & ASN]
+- name: Synthient Context
+  url: https://synthient.com/context
+  description: Check if an IP or domain is a proxy, VPN or Tor exit, with a risk score
+  categories: [Network & ASN]
 
 # Network Scanning — active port and service scanners.
 - name: Nmap
